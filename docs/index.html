@@ -5,13 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>ProxyLink</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="asset/x-icon" href="assets/favicon.ico">
 </head>
 <body>
 <header>
-    <div class="menu" id="home">
+    <div class="menu">
         <div>
             <img src="assets/link-logo.png" class="logo" alt="">
         </div>
@@ -24,11 +25,14 @@
             <a href="#other">Other</a>
             <a href="#links">Links</a>
         </div>
+        <div>
+            <a><button id="download">Download <i class="fa fa-download"></i></button></a>
+        </div>
     </div>
 
 </header>
 
-<div class="image-header">
+<div class="image-header" id="home">
     <div class="header-content">
     <div id="header-logo-div">
         <img src="assets/link-logo.png" id="header-logo" alt="">
@@ -44,7 +48,7 @@
 <div class="main-body">
     <div class="about" id="about">
         <div id="about-image">
-            <img src="assets/placeholder.png" alt="">
+            <img src="assets/app-3.png" alt="">
         </div>
         <div id="about-text">
             <div id="about-title">
@@ -69,17 +73,17 @@
     </div>
 
     <div class="sponsors">
-        <div id="sponsor-title">Sponsors</div>
+        <div class="title">Sponsors</div>
         <div class="body-line2">
             <hr>
         </div>
         <div class="sponsor-grid">
-            <div class="sponsor-row">
+            <div class="img-row">
                 <img src="assets/sponsor-logos/discord.png" alt="" id="discord" class="sponsor-image">
                 <img src="assets/sponsor-logos/silpo.png" alt="" id="silpo" class="sponsor-image">
                 <img src="assets/sponsor-logos/zhyvchyk.png" alt="" id="zhyvchyk" class="sponsor-image">
             </div>
-            <div class="sponsor-row">
+            <div class="img-row">
                 <img src="assets/sponsor-logos/viber.png" alt="" id="viber" class="sponsor-image">
                 <img src="assets/sponsor-logos/steam.png" alt="" id="steam" class="sponsor-image">
                 <img src="assets/sponsor-logos/mojang.png" alt="" id="mojang" class="sponsor-image">
@@ -90,40 +94,32 @@
     <div class="body-line">
         <hr>
     </div>
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
-</div>
-<div class="line">
-    <hr class="line-line">
+
+    <div class="tools">
+        <div class="title">Created With</div>
+        <div class="body-line2"><hr></div>
+        <div class="img-row" id="tool-row">
+            <img src="assets/kotlin.png" alt="">
+            <img src="assets/gradle.png" alt="">
+        </div>
+    </div>
+    <div class="body-line">
+        <hr>
+    </div>
 </div>
 
+<div id="madeby">Made by steepboy and entiyan</div>
+
 <footer id="links">
-    <div id="download">
+    <div>
         <a><button>Download<i class="fa fa-download"></i></button></a>
     </div>
     <div id="github">
         <a href="https://github.com/steepboy/ProxyLink"><button>Github<i class="fa fa-github"></i></button></a>
     </div>
 </footer>
+
+
 
 </body>
 </html>
