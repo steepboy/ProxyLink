@@ -126,6 +126,7 @@ Body{
 .main-body{
     background-color: rgb(39, 38, 38);
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 /*Decorative lines*/
