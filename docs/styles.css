@@ -204,6 +204,44 @@ Body{
     padding-bottom: 10px;
 }
 
+/*Feature Block*/
+
+#features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    padding-left: 80px;
+    margin: 50px 0;
+    background-color: rgb(21, 21, 21);
+    box-shadow: 10px 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.feature-img img{
+    width:500px;
+}
+
+.feature-text-block{
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.feature-text-block ol{
+    list-style: none;
+    padding: 0 60px;
+}
+
+.feature-text-block li{
+    padding: 20px 0;
+}
+
+.fa-check-circle{
+    margin-right: 20px;
+}
+
+
+
 /*Sponsor block*/
 
 .sponsors{
