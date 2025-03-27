@@ -10,7 +10,7 @@ class Main {
             onCloseRequest = ::exitApplication,
             title = "ProxyLink",
         ) {
-            App()
+
         }
     }
 
