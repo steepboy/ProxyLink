@@ -1,3 +1,4 @@
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,11 +16,15 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import me.yiski.ButtonsActions
+import org.jetbrains.compose.resources.painterResource
+import proxylink.composeapp.generated.resources.Res
+import proxylink.composeapp.generated.resources.github_mark_white
 
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Zero Trust",
+        title = "ProxyLink",
         state = rememberWindowState(width = 370.dp, height = 480.dp),
         resizable = false
     ) {
@@ -39,7 +44,7 @@ fun App() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.TopCenter), // Фиксируем вверху
+                .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -47,6 +52,7 @@ fun App() {
                 fontSize = 50.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF4169E1),
+                modifier = Modifier.padding(top = 10.dp)
             )
             Spacer(modifier = Modifier.height(40.dp))
 
@@ -89,25 +95,29 @@ fun App() {
             }
         }
 
-        // Прижимаем Row к самому низу
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.BottomCenter) // Фиксируем внизу
+                .align(Alignment.BottomCenter)
                 .background(Color(0xFF3c3c3c)),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Иконка настроек
-            IconButton(onClick = {}) {
-                Icon(Icons.Default.Settings, contentDescription = "Settings", tint = Color.White)
+            IconButton(onClick = { ButtonsActions().openLinkInBrowser("https://github.com/steepboy/ProxyLink") } ) {
+                Image(
+                    painter = painterResource(Res.drawable.github_mark_white),
+                    contentDescription = "Github logo",
+                    modifier = Modifier.size(24.dp)
+                )
             }
 
-            // Ваша картинка PNG
             IconButton(onClick = {}) {
-
+                Icon(
+                    Icons.Default.Settings,
+                    contentDescription = "Settings",
+                    modifier = Modifier.size(24.dp),
+                    tint = Color.White
+                )
             }
         }
     }
 }
-
-
