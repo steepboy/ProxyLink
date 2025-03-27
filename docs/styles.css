@@ -1,0 +1,260 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes fadeIn {
+    from {transform: translateY(10%); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.line{
+    background-color: rgb(21, 21, 21);
+    width: 100%;
+    height: 85px;
+    color: white;
+    padding: 40px 0px;
+}
+
+.line-line{
+    height: 3px;
+    background-color: white;
+}
+
+.logo{
+     width: 50px;
+     margin-left: 10px;
+}
+
+
+.menu-title{
+    color: white;
+    margin-left: 20px;
+    font-weight bold;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#menu-line{
+    color: white;
+    margin-left: 25px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.top-menu{
+     margin-bottom: 5px;
+     list-style: none;
+     top: 10%;
+}
+
+.top-menu a{
+     color: white;
+     font-size: 20px;
+     text-decoration: none;
+     margin-left: 25px;
+}
+
+.menu{
+    display: flex;
+    background-color: rgb(21, 21, 21);
+    align-items: center;
+    padding: 10px;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/*Header block with background image*/
+
+.image-header{
+    width: auto;
+    background-color: rgb(39, 38, 38);
+    background-image: url('assets/header-bg-2.1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 750px;
+    padding-top: 20px;
+    margin-top: 83px;
+}
+
+.header-content{
+    animation: fadeIn 1s ease-in-out;
+}
+
+#header-logo-div{
+
+    display: flex;
+    justify-content: center;
+}
+
+#header-logo{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+#header-title{
+    color: white;
+    font-size: 100px;
+
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#header-slogan{
+    color: white;
+    font-size: 80px;
+
+    width: 100%;
+    text-align: center;
+    font-weight: semibold;
+}
+
+.main-body{
+    background-color: rgb(39, 38, 38);
+    padding-top: 50px;
+}
+
+/*Decorative lines*/
+
+.body-line{
+    width: 100%;
+    padding: 25px 0px;
+}
+
+.body-line hr{
+    width: 70%;
+    margin-left: 15%;
+    color: rgb(75, 75, 75)
+}
+
+.body-line2{
+    width: 100%;
+    padding: 25px 0px;
+}
+
+.body-line2 hr{
+    width: 40%;
+    margin-left: 30%;
+    color: rgb(75, 75, 75)
+}
+
+/*About Section*/
+
+.about{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#about-image{
+    margin-right: 25px;
+}
+
+#about-image img{
+    width: 800px;
+}
+
+#about-text{
+    color: white;
+    width: 500px;
+}
+
+#about-title{
+    font-size: 40px;
+
+}
+
+#about-line{
+}
+
+#about-list{
+
+}
+
+/*Sponsor block*/
+
+.sponsors{
+    margin-bottom: 0px;
+}
+
+#sponsor-title{
+    color: white;
+    text-align: center;
+    font-size: 75px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+.sponsor-row{
+    margin-top: 4%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.sponsor-image{
+    width: 500px;
+    margin: 0 4%;
+    position: relative;
+}
+
+#just-kidding{
+    width: 100%;
+    text-align: center;
+    margin-top: 120px;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 20px;
+}
+
+/*Footer with github and download buttons*/
+
+Footer{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(39, 38, 38);
+}
+
+#links{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#links button{
+    background-color: rgb(21, 21, 21);
+    color: white;
+    border: 5px solid rgb(60, 60, 60);
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 500px;
+    font-size: 30px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    margin: 0px 100px;
+    transform: scale(1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    cursor: pointer;
+}
+
+#links button:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    background-color: rgb(30, 30, 30);
+}
+
+#links i{
+    margin-left: 15px;
+}
+
