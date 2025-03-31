@@ -2,13 +2,13 @@ package me.yiski.parse
 
 import kotlinx.serialization.json.Json
 import me.yiski.Main
+import me.yiski.Providers
 import org.jsoup.Jsoup
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxOptions
-import me.yiski.Providers
 import java.io.File
 import java.io.IOException
 
@@ -83,7 +83,7 @@ class ProxyDB {
         return proxies
     }
 
-    fun get(protocol: String, countryCode: String? = null): Set<Pair<String, Int>> {
+    fun get(protocol: String, countryCode: String): Set<Pair<String, Int>> {
         if (protocol !in Providers.validProtocols) println("Invalid protocol")
 
         val countries = Json.decodeFromString<Map<String, String>>(
@@ -95,7 +95,7 @@ class ProxyDB {
         }
 
         val baseUrl = "https://proxydb.net/?protocol=${protocol.lowercase()}"
-        val link = if (countryCode != null) "$baseUrl&country=$countryCode" else baseUrl
+        val link = if (countryCode != "ANY") "$baseUrl&country=$countryCode" else baseUrl
 
         return getHtml(link)
     }

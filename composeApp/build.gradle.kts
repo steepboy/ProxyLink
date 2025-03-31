@@ -39,9 +39,17 @@ compose.desktop {
         mainClass = "me.yiski.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.AppImage, TargetFormat.Exe)
-            packageName = "me.yiski"
+            targetFormats(TargetFormat.AppImage, TargetFormat.Exe, TargetFormat.Deb)
+            packageName = "ProxyLink"
             packageVersion = "1.0.0"
+
+            windows {
+                iconFile.set(project.file("src/desktopMain/resources/icons/link-logo-windows.ico"))
+            }
+
+            linux {
+                iconFile.set(project.file("src/desktopMain/resources/icons/link-logo-linux.png"))
+            }
         }
     }
 }

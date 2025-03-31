@@ -13,6 +13,7 @@ class ButtonsActions {
                     val process = Runtime.getRuntime().exec(command)
                     process.waitFor()
                 }
+
                 else -> {
                     if (Desktop.isDesktopSupported()) {
                         val desktop = Desktop.getDesktop()
