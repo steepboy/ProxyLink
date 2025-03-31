@@ -1,0 +1,30 @@
+name: Build Kotlin Application (Windows)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build project
+        run: .\gradlew.bat --refresh-dependencies
+
+      - name: Package application
+        run: .\gradlew.bat packageExe
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: exe
+          path: composeApp/build/compose/binaries/main/exe/
