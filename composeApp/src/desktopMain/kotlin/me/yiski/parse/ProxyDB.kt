@@ -1,8 +1,8 @@
 package me.yiski.parse
 
 import kotlinx.serialization.json.Json
-import me.yiski.Main
 import me.yiski.Providers
+import me.yiski.Utils
 import org.jsoup.Jsoup
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
@@ -87,7 +87,7 @@ class ProxyDB {
         if (protocol !in Providers.validProtocols) println("Invalid protocol")
 
         val countries = Json.decodeFromString<Map<String, String>>(
-            File(Main().getUrlResourcePath("countries.json")).readText()
+            File(Utils().getUrlResourcePath("countries.json")).readText()
         )
 
         if (!countries.containsKey(countryCode)) {

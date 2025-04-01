@@ -40,7 +40,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.AppImage, TargetFormat.Exe, TargetFormat.Deb)
-            packageName = "ProxyLink"
+            packageName = rootProject.name
             packageVersion = "1.0.0"
 
             windows {

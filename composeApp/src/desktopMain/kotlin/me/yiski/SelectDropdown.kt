@@ -16,8 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import me.yiski.Main
 import me.yiski.SelectionStorage
+import me.yiski.Utils
 import java.nio.file.Files
 import java.nio.file.Paths
 
@@ -30,7 +30,7 @@ private fun selectableDropdown(jsonPath: String, textFieldValue: String, setAny:
     var expanded by remember { mutableStateOf(false) }
     var selectedCountry by remember { mutableStateOf<Country?>(null) }
 
-    val json = readJsonFile(Main().getUrlResourcePath(jsonPath))
+    val json = readJsonFile(Utils().getUrlResourcePath(jsonPath))
     val countries = parseCountriesJson(json)
 
     LaunchedEffect(countries) {
@@ -115,6 +115,7 @@ private fun parseCountriesJson(json: String): List<Country> {
 
 @Composable
 fun selectableCountryDropdown(isEnabled: Boolean) {
+    println(Utils().getUrlResourcePath("countries.json"))
     selectableDropdown("countries.json", "Select Country", setAny = true, isEnabled = isEnabled)
 }
 

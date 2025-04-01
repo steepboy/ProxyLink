@@ -12,7 +12,9 @@ class Providers {
     private fun checkProxy(proxyHost: String, proxyPort: Int, protocol: String): Pair<String, String>? {
         return when (protocol.lowercase()) {
             "http", "https", "socks4", "socks5" -> checkWorkingProxy(proxyHost, proxyPort, protocol.lowercase())
-            else -> throw RuntimeException("Invalid proxy protocol: $protocol")
+            else -> {
+                throw RuntimeException("Invalid proxy protocol: $protocol")
+            }
         }
     }
 
@@ -32,7 +34,7 @@ class Providers {
             socket.connect(InetSocketAddress(proxyHost, proxyPort))
             socket.close()
 
-            val url = URL("http://ifconfig.me")
+            val url = URL("http://1.1.1.1")
             val connection = url.openConnection(proxy) as HttpURLConnection
             connection.connectTimeout = connectTimeout
             connection.readTimeout = readTimeout
@@ -42,7 +44,7 @@ class Providers {
             val reader = InputStreamReader(connection.inputStream)
             reader.close()
 
-            Pair<String, String>(proxyHost, proxyPort.toString())
+            Pair(proxyHost, proxyPort.toString())
         } catch (e: Exception) {
             return null
         }
@@ -50,16 +52,18 @@ class Providers {
 
     fun startWorkingProxy(): Boolean {
         val proxyList =
-            ProxyDB().get(SelectionStorage.selectedProtocol.toString(), SelectionStorage.selectedCountry!!.code)
+            ProxyDB().get(SelectionStorage.selectedProtocol.toString(), SelectionStorage.selectedCountry?.code ?: "")
 
-        if (proxyList.isEmpty()) return false
+        if (proxyList.isEmpty()) {
+            return false
+        }
 
         var isProxyFound = false
 
         for ((proxyHost, proxyPort) in proxyList) {
-            val result = Providers().checkProxy(proxyHost, proxyPort, SelectionStorage.selectedProtocol.toString())
+            val result = checkProxy(proxyHost, proxyPort, SelectionStorage.selectedProtocol.toString())
             if (result != null) {
-                val command: String = "chromium --proxy-server=${
+                val command = "chromium --proxy-server=${
                     SelectionStorage.selectedProtocol.toString().lowercase()
                 }://${result.first}:${result.second}"
 
@@ -73,4 +77,3 @@ class Providers {
         return isProxyFound
     }
 }
-
